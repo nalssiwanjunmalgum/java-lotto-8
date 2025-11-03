@@ -26,7 +26,7 @@ class LottoTest {
 
     @Nested
     @DisplayName("예외가 발생하는 조건")
-    class LottoExcpetionCases {
+    class LottoExceptionCases {
         @DisplayName("로또 번호의 개수가 6개보다 적다면 예외가 발생한다.")
         @Test
         void createLottoByLowerSize() {

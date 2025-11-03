@@ -20,7 +20,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 public class LottoGeneratorTest {
     @Nested
     @DisplayName("로또 조건을 만족하는 경우")
-    class validatedLotto {
+    class ValidatedLotto {
         private Lotto generatedLotto = LottoGenerator.generateLotto(
                 () -> Randoms.pickUniqueNumbersInRange(1, 45, 6));
         private List<Integer> lottoNumbers = generatedLotto.getLotto();
@@ -48,7 +48,7 @@ public class LottoGeneratorTest {
 
     @Nested
     @DisplayName("로또 조건을 만족하지 못하는 경우")
-    class unvalidLotto {
+    class UnvalidLotto {
         private static Stream<Arguments> generateWrongSizeLotto() {
             return Stream.of(
                     Arguments.of(Arrays.asList(1, 2, 3, 4, 5)),
