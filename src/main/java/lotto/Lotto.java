@@ -1,8 +1,14 @@
 package lotto;
 
+import java.util.HashSet;
 import java.util.List;
+import lotto.exception.ExceptionMessage;
 
 public class Lotto {
+    public static final int MAX_VALUE = 45;
+    public static final int MIN_VALUE = 1;
+    private static final int STANDARD_SIZE = 6;
+
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
@@ -11,10 +17,31 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+        hasStandardSize(numbers);
+        hasDuplicatedNumber(numbers);
+        hasOutOfRangeNumber(numbers);
+    }
+
+    private void hasStandardSize(List<Integer> numbers) {
+        if (numbers.size() != STANDARD_SIZE) {
+            throw new IllegalArgumentException(ExceptionMessage.WRONG_LOTTO_SIZE.getErrorDescription());
         }
     }
 
-    // TODO: 추가 기능 구현
+    private void hasDuplicatedNumber(List<Integer> numbers) {
+        if (numbers.size() != new HashSet<>(numbers).size()) {
+            throw new IllegalArgumentException(ExceptionMessage.DUPLICATED_NUMBER.getErrorDescription());
+        }
+    }
+
+    private void hasOutOfRangeNumber(List<Integer> numbers) {
+        if (numbers.stream()
+                .anyMatch(number -> ((number > MAX_VALUE) || (number < MIN_VALUE)))) {
+            throw new IllegalArgumentException(ExceptionMessage.OUT_OF_RANGE_LOTTO_NUMBER.getErrorDescription());
+        }
+    }
+
+    public List<Integer> getLotto() {
+        return List.copyOf(numbers);
+    }
 }
