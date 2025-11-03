@@ -3,7 +3,7 @@ package lotto.util.generator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import lotto.Lotto;
+import lotto.domain.Lotto;
 
 public class LottoGenerator {
     public static Lotto generateLotto(RandomStrategy randomGenerator) {
