@@ -1,4 +1,5 @@
 package lotto.controller.register;
 
-public interface RegisterController {
+public interface RegisterController<E> {
+    E process();
 }
