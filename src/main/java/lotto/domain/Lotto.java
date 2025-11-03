@@ -48,4 +48,10 @@ public class Lotto {
     public List<Integer> getLotto() {
         return List.copyOf(numbers);
     }
+
+    public int findSameNumberCountInLotto(Lotto generatedRandomLotto) {
+        return (int) numbers.stream()
+                .filter(number -> generatedRandomLotto.hasSameNumber(number))
+                .count();
+    }
 }

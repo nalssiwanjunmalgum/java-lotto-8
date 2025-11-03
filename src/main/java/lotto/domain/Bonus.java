@@ -22,4 +22,8 @@ public class Bonus {
             throw new IllegalArgumentException(ExceptionMessage.SAME_NUMBER_WITH_LOTTO_NUMBER.getErrorDescription());
         }
     }
+
+    public boolean hasSameNumberInGeneratedLotto(Lotto generatedRandomLotto) {
+        return generatedRandomLotto.hasSameNumber(bonusNumber);
+    }
 }
