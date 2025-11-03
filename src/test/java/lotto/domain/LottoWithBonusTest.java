@@ -27,12 +27,12 @@ public class LottoWithBonusTest {
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining("로또 번호와 중복된 보너스 번호");
         }
-    }
 
-    @Test
-    void 보너스_로또_범위_내_그리고_서로_다른_수_성공() {
-        assertThatCode(
-                () -> new LottoWithBonus(lotto, new Bonus(40, lotto))
-        ).doesNotThrowAnyException();
+        @Test
+        void 보너스_로또_범위_내_그리고_서로_다른_수_성공() {
+            assertThatCode(
+                    () -> new LottoWithBonus(lotto, new Bonus(40, lotto))
+            ).doesNotThrowAnyException();
+        }
     }
 }
