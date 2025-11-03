@@ -10,6 +10,7 @@ import lotto.domain.LottoFinalResult;
 import lotto.domain.LottoResult;
 import lotto.domain.LottoWithBonus;
 import lotto.domain.UserMoney;
+import lotto.repository.LottoRepository;
 import lotto.util.generator.LottoGenerator;
 
 public class LottoService {
