@@ -48,11 +48,11 @@ class NumberValidatorTest {
     void isLottoPattern_shouldThrow_whenInvalidFormat() {
         assertThatThrownBy(() -> NumberValidator.isLottoPattern("1,,2"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ExceptionMessage.NOT_MATCHES_NUMBER_PATTERN.getErrorDescription());
+                .hasMessage(ExceptionMessage.NOT_MATCHES_LOTTO_PATTERN.getErrorDescription());
 
         assertThatThrownBy(() -> NumberValidator.isLottoPattern("1,a,3"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ExceptionMessage.NOT_MATCHES_NUMBER_PATTERN.getErrorDescription());
+                .hasMessage(ExceptionMessage.NOT_MATCHES_LOTTO_PATTERN.getErrorDescription());
     }
 
     @Test
